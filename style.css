@@ -1,0 +1,47 @@
+body{
+    background-color: white;
+    
+
+
+}
+h1{
+    text-align: center;
+    margin-inline-start: 20px;
+}
+nav{
+    text-align: center;
+    position: relative;
+    
+
+}
+section{
+    background-color:tan;
+    display:inline-block;
+    
+}
+
+.game{
+    width: 100em;
+    height: 50em;
+    background-color:black;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+    
+     
+    
+}
+
+.box{
+    background-color: red;
+    float: left;
+    width: 20em;
+    height: 20vh;
+    border: 2px solid black;
+    margin: 20px;
+    box-sizing: border-box;
+    padding:0%;
+    margin-left: 3%;
+    
+    
+}
