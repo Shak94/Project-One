@@ -7,7 +7,7 @@ They will proceed to move onto round two where they find out who is the  murdere
 
 All of this would be accomplished by matching three to four boxes with the icons,and hints included.
 
-![Alt text](Detective.jpeg)![Alt text](dinner.jpeg)
+![Alt text](dinner.jpeg)![Alt text](Detective%202.jpeg)
 
 [PROJECT ONE READ ME CLICK HERE](https://github.com/Shak94/Project-One)
                   
