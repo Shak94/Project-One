@@ -1,47 +1,105 @@
-body{
-    background-color: white;
-    
-
-
+@font-face {
+    font-family:myFont ;
+    src: url(oozy.ttf);
 }
 h1{
     text-align: center;
-    margin-inline-start: 20px;
+    font-family: myFont;
+    font-size: 60px;
 }
-nav{
-    text-align: center;
-    position: relative;
-    
+h2{
+    color: white ;
+}
+body{
+    background-image: url("Forest.jpg");
 
+
+  
 }
+
+
 section{
-    background-color:tan;
+    background-color: black;
+    
+}
+#play-area{
+   
+    top:auto;
+    margin-top: 200px;
+    display: flex;
+    grid-template-columns: auto;
+ 
+}
+
+.line{
+  text-align: center;
+  grid-template-rows: auto;
+
+}
+.card{
+    width: 100px;
+    height: 100px;
     display:inline-block;
+    cursor: cell;
+    position: relative;
+    transform-style: preserve-3d;
+    background-image: url(splat.jpg);
+
     
+   
+}
+.back{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display:inline-block;
+   
+    
+    
+
+}
+.front{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+  transform:rotateY(180deg);
+  backface-visibility: hidden;
 }
 
-.game{
-    width: 100em;
-    height: 50em;
-    background-color:black;
-    box-sizing: border-box;
-    margin-left: auto;
-    margin-right: auto;
-    
-     
-    
+.flipCard{
+    transform: rotateY(180deg);
+}
+.card:hover{
+ border: 1% solid black;
 }
 
-.box{
-    background-color: red;
-    float: left;
-    width: 20em;
-    height: 20vh;
-    border: 2px solid black;
-    margin: 20px;
-    box-sizing: border-box;
-    padding:0%;
-    margin-left: 3%;
+
+.splat{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    display: none;
     
+
+
+}
+
+.character{
+    width: 100px;
+    height: 100px;
+
     
 }
+.hint{
+    float: right;
+    background-color: orange;
+     font-weight: bold ;
+     font-style: italic;
+}
+.start{
+ font-weight: bold;
+ font-style: italic;
+ background-color: greenyellow;
+ 
+}
+
