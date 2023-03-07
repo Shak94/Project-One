@@ -12,9 +12,13 @@ h2{
 }
 body{
     background-image: url("Forest.jpg");
+}
 
-
-  
+p{
+    text-align: center;
+  font-size: 28px;
+  font-weight: bold;
+  color: maroon;
 }
 
 

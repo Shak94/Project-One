@@ -7,49 +7,72 @@ const backOfcard = document.querySelectorAll(".back");
 const suspects = document.querySelectorAll(".character");
 const flipSomeCards = document.querySelector(".hint");
 console.log(flipSomeCards);
-
+const startButton = document.querySelector(".start");
+console.log(startButton);
+let clock = document.querySelector(".timer")
+console.log(clock);
 //Array of Characters
 const characters = [
-  { name: "Ezra", image: "Ezra Jones.jpg" },
-  { name: "Kim", image: "Kim Alexander.jpg" },
-  { name: "Malia", image: "Malia Roman.jpg" },
-  { name: "Penelope", image: "Penelope Murray.jpg" },
-  { name: "Philo", image: "Philo Ivanov.jpg" },
-  { name: "Timothy", image: "Timothy Walton.jpg" },
-  { name: "Dennis", image: "Dennis Holdrich.jpg" },
-  { name: "Josephine", image: "Josephine Baker.jpg" },
+    { name: "Ezra", image: "Ezra Jones.jpg" },
+    { name: "Kim", image: "Kim Alexander.jpg" },
+    { name: "Malia", image: "Malia Roman.jpg" },
+    { name: "Penelope", image: "Penelope Murray.jpg" },
+    { name: "Philo", image: "Philo Ivanov.jpg" },
+    { name: "Timothy", image: "Timothy Walton.jpg" },
+    { name: "Dennis", image: "Dennis Holdrich.jpg" },
+    { name: "Josephine", image: "Josephine Baker.jpg" },
 ];
-
-// Function of winnig conditions
 
 //Flip Card Function here.
 
 function flipCard(card) {
-  card.classList.toggle("flipCard");
+    card.classList.toggle("flipCard");
 }
+console.log("flipCard");
 
 for (let i = 0; i < cards.length; i++) {
-  cards[i].addEventListener("click", () => {
-    flipCard(cards[i]);
-  });
+    cards[i].addEventListener("click", () => {
+        flipCard(cards[i]);
+    });
+    console.log(cards[i]);
 }
-// Flip All Cards
-function flipAllCards(){
-    for(let i=0; i< cards.length; i++){
+// Flip All Cards with Hint button.
+function flipAllCards() {
+    for (let i = 0; i < cards.length; i++) {
         flipCard(cards[i]);
     }
 }
-function handleHintClick(){
+function handleHintClick() {
     flipAllCards();
-    setTimeout(flipAllCards,500);
+    setTimeout(flipAllCards, 500);
 }
+// console.log(handleHintClick)
 flipSomeCards.addEventListener("click", () => {
-   handleHintClick();
-   
+    handleHintClick();
+
 
 });
 
-//Start Game will start the timer and create a sound
+//Start Game will start the timer and inistialize game play.
+function startTimer(seconds) {
+    let myTimer = seconds;
+    const interval = setInterval(() => {
+        console.log(myTimer);
+        // console.log(interval);
+        myTimer--;
+        if (myTimer < 0) {
+            clearInterval(interval);
+            console.log('Times Up');
+        }
+    }, 1000);
+
+}
+
+// console.log(startTimer);
+
+
+
+
 
 //Winning Conditions function
 
@@ -59,3 +82,6 @@ flipSomeCards.addEventListener("click", () => {
 
 //
 //My Event listeners
+
+startButton.addEventListener('click',() => (startTimer(20)));
+
