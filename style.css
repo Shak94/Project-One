@@ -20,19 +20,22 @@ p{
   font-weight: bold;
   color: maroon;
 }
-
+main{
+    display: flex;
+}
 
 section{
-    background-color: black;
+    background-color: #000000;
+    width: 20vw;
+   
     
 }
-#play-area{
-   
-    top:auto;
-    margin-top: 200px;
-    display: flex;
+.play-area{
+    width: 60vw;
     grid-template-columns: auto;
- 
+    text-align: center;
+    /* display:flex; */
+    
 }
 
 .line{
@@ -48,6 +51,7 @@ section{
     position: relative;
     transform-style: preserve-3d;
     background-image: url(splat.jpg);
+    transition:transform 1s;
 
     
    
@@ -68,10 +72,16 @@ section{
     position: absolute;
   transform:rotateY(180deg);
   backface-visibility: hidden;
+
 }
 
-.flipCard{
+.showCard{
     transform: rotateY(180deg);
+
+}
+.hideCard{
+    transform: rotateY(-180deg);
+    
 }
 .card:hover{
  border: 1% solid black;
@@ -93,6 +103,10 @@ section{
     height: 100px;
 
     
+}
+.reset{
+background-color: red;
+text-align: center;
 }
 .hint{
     float: right;
