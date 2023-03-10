@@ -11,14 +11,14 @@ const flipSomeCards = document.querySelector(".hint");
 console.log(flipSomeCards);
 const startButton = document.querySelector(".start");
 console.log(startButton);
-const resetButton=document.querySelector(".reset");
+const resetButton = document.querySelector(".reset");
 let clock = document.querySelector(".timer")
 console.log(clock);
 const matchAttempts = document.querySelector('.attempts')
 let cardOne = null;
-let cardTwo= null;
+let cardTwo = null;
 let cardsGuess = [];
-console.log(cardsGuess);
+let correctMatches = [];
 //Flip Card Function here.
 
 function flipCard(card) {
@@ -26,57 +26,63 @@ function flipCard(card) {
     card.classList.add('selected')
     if (!cardOne) {
         cardOne = card.children[0].children[0];
-        console.log(cardOne);
+        console.log("Card one flipped:", cardOne);
         cardsGuess.push(cardOne);
-    }
-    else {
+    } else {
         cardTwo = card.children[0].children[0];
-        console.log(cardTwo);
+        console.log("Card two flipped:", cardTwo);
         cardsGuess.push(cardTwo);
-        
-        //       // Now compare if cardOne and Card Two are the same. If they are its a match. If not decrease Attempts Remaining.
-           
-        if (cardOne == cardTwo) {
+
+        // // Now compare if cardOne and Card Two are the same. If they are its a match. If not decrease Attempts Remaining.
+
+        if (cardOne.src === cardTwo.src) {
             console.log('YOU HAVE A MATCH');
-            cardsGuess.classList.add('hideCard')
-
+            cardOne.classList.add('showCard');
+            cardTwo.classList.add('showCard');
+            correctMatches.push(cardOne, cardTwo);
+            console.log("Matches:", correctMatches)
+            cardOne = null;
+            cardTwo = null;
+            console.log("card Guess", cardsGuess);
+            cardsGuess = [];
+            //Remember to check game winning conditions.
         }
-
         else {
             console.log('NOT A MATCH');
             setTimeout(() => {
-                for(let i=0; i < cardsGuess.length; i++){
-                    cardsGuess[i].classList.remove("showCard")
-                    console.log(cardsGuess[i]);
-                }
-                console.log(cardsGuess[i]);
+                cardOne.classList.remove('showCard');
+                cardTwo.classList.remove('showCard');
+                
+                cardOne = null;
+                cardTwo = null;
+                console.log("card Guess", cardsGuess);
+                cardsGuess = [];
                 console.log("this is the first message");
-            }, 2000);
-        }
-        
-        console.log(cardsGuess[i]);
-        // else {
-        //     cards.forEach(element => {
-        //         element.classList.contains('selected');
-        //         element.classList.remove("showCard");
-        //     })
-        // }
-        // document.querySelector('.selected').classList.remove('selected')
-        // document.querySelector('.selected').classList.remove('selected')
-        // console.log(document.querySelectorAll('.selected')[0].classList.toggle('showCard'))
-
-
+            }, 100);
+        } 
+    //    cardOne = null;
+    //     cardTwo = null;
+    //     console.log("card Guess", cardsGuess);
+    //     cardsGuess = [];
     }
-    cardOne= null;
-    cardTwo= null;
+    // else {
+    //     cards.forEach(element => {
+    //         element.classList.contains('selected');
+    //         element.classList.remove("showCard");
+    //     })
+    // }
+    // document.querySelector('.selected').classList.remove('selected')
+    // document.querySelector('.selected').classList.remove('selected')
+    // console.log(document.querySelectorAll('.selected')[0].classList.toggle('showCard'))
 
-    document.querySelectorAll('.selected').forEach(card => {
-        card.classList.remove('selected')
-    }
-    )
-    cardsGuess = [];
+    // document.querySelectorAll('.selected').forEach(card => {
+    //     card.classList.remove('selected')
+    // }
+    // )
 }
+
 console.log(cardsGuess);
+console.log(flipCard.cardsGuess);
 
 
 
@@ -134,8 +140,8 @@ function startTimer(seconds) {
 //Reset Cards/Shuffle
 function randomCards(card) {
     cards.forEach(card => {
-      let randomizedCards = Math.floor(Math.random() * 16);
-      card.style.order = randomizedCards;
+        let randomizedCards = Math.floor(Math.random() * 16);
+        card.style.order = randomizedCards;
 
     })
 }
@@ -147,5 +153,5 @@ startButton.addEventListener('click', () => (startTimer(60)));
 console.log(cardOne)
 console.log(cardTwo)
 randomCards();
-resetButton.addEventListener('click',() => randomCards(cards));
+resetButton.addEventListener('click', () => randomCards(cards));
 console.log(resetButton);

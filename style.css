@@ -34,7 +34,8 @@ section{
     width: 60vw;
     grid-template-columns: auto;
     text-align: center;
-    /* display:flex; */
+    display:flex;
+    flex-direction: column;
     
 }
 
@@ -81,6 +82,7 @@ section{
 }
 .hideCard{
     transform: rotateY(-180deg);
+    display:none;
     
 }
 .card:hover{
