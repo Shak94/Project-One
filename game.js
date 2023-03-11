@@ -19,7 +19,7 @@ const matchesCount= document.querySelector(".correctMatches")
 let cardOne, cardTwo;
 let cardsGuess = [];
 let correctMatches = [];
-let playerMatchAttempts=1;
+let playerMatchAttempts=0;
 let playerMatchCount=0;
 //Flip Card Function here.
 
@@ -40,16 +40,13 @@ function flipCard(card) {
         console.log(playerMatchAttempts)
         console.log("checking ",cardOne)
        
-
-        // // Now compare if cardOne and Card Two are the same. If they are its a match. If Increase Matches succesful matches Count.
-       
-        //Compare cardOne and cardtwo to check for a successfulmatch.
+        //Compare CardOne and CardTwo to check for a successfulmatch.
         if (cardOne.src === cardTwo.src ) {
             playerMatchCount++;
             matchesCount.innerHTML=(`Matches:${playerMatchCount}`);
             console.log('YOU HAVE A MATCH');
             correctMatches.push(cardOne, cardTwo);
-            console.log(playerMatchCount)
+            console.log(correctMatches,"Matched Cards Array")
             cardOne.removeEventListener("click",flipCard);
             cardTwo.removeEventListener("click",flipCard);
             // console.log("Matches:", correctMatches)
@@ -57,21 +54,22 @@ function flipCard(card) {
             cardTwo = null;
             console.log("card Guess", cardsGuess);
             cardsGuess = [];
-            //Remember to check game winning conditions.
+            declareWinner();
+           
         }
         else {
             console.log('NOT A MATCH');
             // cardOne.classList.remove('showCard');
             // cardTwo.classList.remove('showCard');
             setTimeout(() => {
-                cardOne.classList.toggle('hideCard');
-                cardTwo.classList.toggle('hideCard');
+                cardOne.classList.add('hideCard');
+                cardTwo.classList.add('hideCard');
                 console.log("card Guess", cardsGuess);
                 
             }, 1500);
             setTimeout(() => {
-                cardOne.classList.toggle('hideCard');
-                cardTwo.classList.toggle('hideCard');
+                cardOne.classList.remove('hideCard');
+                cardTwo.classList.remove('hideCard');
                 cardsGuess = [];
                 cardOne = null;
                 cardTwo = null;
@@ -80,15 +78,23 @@ function flipCard(card) {
             
         
         } 
-    //     cardsGuess = [];
+   
     }
 }
-console.log(cardsGuess);
-console.log(flipCard.cardsGuess);
+//Win Conditions!.
+function declareWinner(){
+    for (let i = 0; i < correctMatches.length; i++) {
+        if(correctMatches.length/2 === playerMatchCount.innerHTML ){
+            console.log('You have found the killer Congratz')
 
+        }     
+        
+    }
+}
+console.log(declareWinner,"checking win condition function")
 
-//     document.querySelector('.selected').classList.remove('selected')
-// }
+// console.log(cardsGuess);
+// console.log(flipCard.cardsGuess);
 
 
 console.log('flipBack')
