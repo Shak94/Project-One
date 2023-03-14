@@ -21,27 +21,34 @@ p{
   color: maroon;
 }
 main{
-    display: flex;
+display: grid;
+ max-width: none;
+ text-align: center;
+ justify-items: stretch;
+justify-content: center;
 }
 
 section{
     background-color: #000000;
     width: 20vw;
+    float: left;
    
     
 }
 .play-area{
     width: 60vw;
     grid-template-columns: auto;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    margin: 0%;
     
 }
 
 .line{
   text-align: center;
-  grid-template-rows: auto;
+ 
 
 }
 .card{
@@ -53,6 +60,7 @@ section{
     transform-style: preserve-3d;
     background-image: url(splat.jpg);
     transition:transform 1s;
+    align-items: center;
   
 
     
@@ -61,8 +69,8 @@ section{
 .back{
     width: 100px;
     height: 100px;
-    position: absolute;
-    display:inline-block;
+    position: relative;
+
    
     
     
@@ -71,10 +79,11 @@ section{
 .front{
     width: 100px;
     height: 100px;
-    position: absolute;
+    position: relative;
   transform:rotateY(180deg);
   backface-visibility: hidden;
   transform-style: preserve-3d;
+  pointer-events: none;;
 
 }
 
