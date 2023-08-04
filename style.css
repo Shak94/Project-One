@@ -83,7 +83,7 @@ section{
   transform:rotateY(180deg);
   backface-visibility: hidden;
   transform-style: preserve-3d;
-  pointer-events: none;;
+
 
 }
 
@@ -140,3 +140,6 @@ text-align: center;
  
 }
 
+.correctMatch{
+    background-color: none;
+}
